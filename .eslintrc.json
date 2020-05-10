@@ -22,7 +22,6 @@
   "rules": {
     "quotes": ["error", "double"],
     "indent": ["error", 2],
-    "comma-dangle": [2, "never"],
     "require-jsdoc": 0,
     "object-curly-spacing": ["error", "always"],
     "padded-blocks": [1, "never"],
