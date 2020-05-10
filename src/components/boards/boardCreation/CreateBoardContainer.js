@@ -1,31 +1,29 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import CreateBoard from './CreateBoard';
-import ActiveCreateBoard from './ActiveCreateBoard'
+import React, { Component } from "react";
+import propTypes from "prop-types";
+import { connect } from "react-redux";
+import CreateBoard from "./CreateBoard";
+import ActiveCreateBoard from "./ActiveCreateBoard";
 
-class CreateBoardContainer extends Components {
-
+class CreateBoardContainer extends Component {
   static propTypes = {
-    createBoard: PropTypes.object
-  }
+    createBoard: propTypes.object,
+  };
 
-  render () {
-
+  render() {
     const { createBoard } = this.props;
 
     return (
       <div>
-        { createBoard.isBoardOpen ? <ActiveCreateBoard /> : <CreateBoard /> }
+        {createBoard.isBoardOpen ? <ActiveCreateBoard /> : <CreateBoard />}
       </div>
-    )
+    );
   }
 }
 
-function mapStateToProps({ createBoaed }) {
+function mapStateToProps({ createBoard }) {
   return {
-    createBoard
-  }
+    createBoard,
+  };
 }
 
-export default connect(mapStateToProps)(CreateBoardContainer)
+export default connect(mapStateToProps)(CreateBoardContainer);

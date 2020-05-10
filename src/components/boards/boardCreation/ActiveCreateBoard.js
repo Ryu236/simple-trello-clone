@@ -12,7 +12,7 @@ const Title = styled.h3`
 
 const TopWrapper = styled.div`
   display: flex;
-  justify-contnet: space-around;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   border-bottom: solid 1px rgb(240, 240, 240);
@@ -30,14 +30,20 @@ const CloseBoardIcon = styled.img`
   }
 `;
 
-const bodyWrapper = styled.div`
+const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 10px;
 `;
 
-const BoardNamingInput = styled.imput`
+const BoardNamingTitle = styled.h5`
+  color: black;
+  font-weight: 400;
+  margin: 20px 19px 0 25px;
+`;
+
+const BoardNamingInput = styled.input`
   margin: 20px 2rem 5px;
   padding: 11px 15px;
   font-size: 16px;
@@ -46,7 +52,7 @@ const BoardNamingInput = styled.imput`
   width: 75%;
 `;
 
-const ButtomWrapper = styled.div`
+const ButtonWrapper = styled.div`
   margin: 20px 0 5p[x 0;
   display: flex;
   justify-content: flex-end;
@@ -68,7 +74,22 @@ const SubmitButton = styled.button`
   }
 `;
 
-class ActiveCreateBoard extends Components {
+const CancelButton = styled.button`
+  width: auto;
+  height: 43px;
+  margin: 15px -5px 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  border: none;
+  &:hover {
+    transition: all 200ms ease-in-out;
+    background-color: none;
+    color: black;
+  }
+`;
+
+class ActiveCreateBoard extends Component {
   handleForm = () => {
     console.log("submitted");
   };
@@ -76,7 +97,7 @@ class ActiveCreateBoard extends Components {
   renderForm = (props) => {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.hadleForm)}>
+      <form onSubmit={handleSubmit(this.handleForm)}>
         <Field name="boardTitle" component={BoardNamingInput} type="text" />
       </form>
     );
@@ -97,7 +118,7 @@ class ActiveCreateBoard extends Components {
           <BoardNamingTitle>What shall we call the board?</BoardNamingTitle>
           {this.renderForm()}
           <ButtonWrapper>
-            <CancelButton onClick={() => cancelCreateBoard()}>
+            <CancelButton onClick={() => cancelCreatingBoard()}>
               Cancel
             </CancelButton>
             <SubmitButton onClick={this.handleForm()}>Create</SubmitButton>

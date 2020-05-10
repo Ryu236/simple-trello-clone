@@ -20,4 +20,4 @@ class BoardContainer extends Component {
   }
 }
 
-export default connect(null)(hogehoge);
+export default connect(null)(BoardContainer);
