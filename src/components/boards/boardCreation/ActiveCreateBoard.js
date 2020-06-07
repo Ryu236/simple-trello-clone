@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { Wrapper } from "./CreateBoard";
 import cancelCreatingBoard from "./../../../Actions/CancelCreatingBoard";
-import closeIcon from "../../../Assets/closeIcon.svg";
 
 const Title = styled.h3`
   color: black;
@@ -108,7 +107,7 @@ class ActiveCreateBoard extends Component {
     return (
       <Wrapper>
         <TopWrapper>
-          <Title>Creating a bard</Title>
+          <Title>Creating a board</Title>
           <CloseBoardIcon
             onClick={() => cancelCreatingBoard()}
             src={require("../../../Assets/closeIcon.svg")}
