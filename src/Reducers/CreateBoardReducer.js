@@ -1,8 +1,15 @@
-import { CREATE_NEW_BOARD, CANCEL_NEW_BOARD, SUBMIT_NEW_BOARD } from "./../Actions/ActionTypes";
+import {
+  CREATE_NEW_BOARD,
+  CANCEL_NEW_BOARD,
+  SUBMIT_NEW_BOARD,
+  CLEAN_NEW_BOARD,
+} from "./../Actions/ActionTypes";
 
 const initialState = {
   isBoardOpen: false,
-  title: null
+  title: null,
+  id: null,
+  success: false,
 };
 
 export default function (state = initialState, action) {
@@ -12,6 +19,8 @@ export default function (state = initialState, action) {
         ...state,
         title: null,
         isBoardOpen: true,
+        id: null,
+        success: false,
       };
 
     case CANCEL_NEW_BOARD:
@@ -19,17 +28,24 @@ export default function (state = initialState, action) {
         ...state,
         title: null,
         isBoardOpen: false,
+        id: null,
+        success: false,
       };
 
     case SUBMIT_NEW_BOARD:
       return {
-      ...state,
-      title: action.payload,
-      isBoardOpen: true,
-    }
+        ...state,
+        title: action.payload,
+        isBoardOpen: false,
+        id: Math.floor(100000 + Math.random() * 900000),
+      };
+
+    case CLEAN_NEW_BOARD:
+      return {
+        ...state,
+      };
 
     default:
       return state;
   }
-
 }

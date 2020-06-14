@@ -6,23 +6,23 @@ import ActiveCreateBoard from "./ActiveCreateBoard";
 
 class CreateBoardContainer extends Component {
   static propTypes = {
-    createBoard: propTypes.object,
+    newBoard: propTypes.object,
   };
 
   render() {
-    const { createBoard } = this.props;
+    const { newBoard } = this.props;
 
     return (
       <div>
-        {createBoard.isBoardOpen ? <ActiveCreateBoard /> : <CreateBoard />}
+        {newBoard.isBoardOpen ? <ActiveCreateBoard /> : <CreateBoard />}
       </div>
     );
   }
 }
 
-function mapStateToProps({ createBoard }) {
+function mapStateToProps({ newBoard }) {
   return {
-    createBoard,
+    newBoard,
   };
 }
 
